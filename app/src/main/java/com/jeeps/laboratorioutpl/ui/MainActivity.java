@@ -135,8 +135,8 @@ public class MainActivity extends AppCompatActivity {
                     // Handle bad requests
                     if (response.body() != null) {
                         // Handle empty array
-                        if (response.body().getPermisoDB() != null) {
-                            AccessAdapter adapter = new AccessAdapter(response.body().getPermisoDB(),
+                        if (response.body().getPermissionDB() != null) {
+                            AccessAdapter adapter = new AccessAdapter(response.body().getPermissionDB(),
                                     MainActivity.this.getApplicationContext());
                             accessRecyclerView.setAdapter(adapter);
                             // Improve performance if layout size will not change

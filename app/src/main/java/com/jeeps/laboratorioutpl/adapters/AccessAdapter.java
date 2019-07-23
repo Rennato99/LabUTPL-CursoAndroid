@@ -20,8 +20,8 @@ import butterknife.ButterKnife;
 
 public class AccessAdapter extends RecyclerView.Adapter<AccessAdapter.AccessViewHolder> {
 
-    private static final String ENTER = "ENTRADA";
-    private static final String EXIT = "SALIDA";
+    private static final String ENTER = "ENTRY";
+    private static final String EXIT = "EXIT";
     private List<AccessWithRoom> accessList;
     private Context context;
 

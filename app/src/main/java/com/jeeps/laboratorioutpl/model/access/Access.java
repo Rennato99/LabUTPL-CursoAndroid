@@ -8,7 +8,7 @@ public class Access {
     private String date;
     private String hour;
     private String user;
-    private String sala;
+    private String room;
     private String typeAccess;
 
     public String getId() {
@@ -43,12 +43,12 @@ public class Access {
         this.user = user;
     }
 
-    public String getSala() {
-        return sala;
+    public String getRoom() {
+        return room;
     }
 
-    public void setSala(String sala) {
-        this.sala = sala;
+    public void setRoom(String room) {
+        this.room = room;
     }
 
     public String getTypeAccess() {
