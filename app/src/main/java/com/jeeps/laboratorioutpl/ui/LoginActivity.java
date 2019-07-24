@@ -24,8 +24,7 @@ import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
 
-    @BindView(R.id.usernameField)
-    TextView usernameField;
+    @BindView(R.id.emailField) TextView emailField;
     @BindView(R.id.passwordField) TextView passwordField;
     @BindView(R.id.badLoginText) TextView badLoginText;
 
@@ -38,6 +37,7 @@ public class LoginActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         // Initialize services
+
         loginService = RetrofitClient.getRetrofitInstance().create(LoginService.class);
 
         // Hide bad login text
@@ -48,21 +48,26 @@ public class LoginActivity extends AppCompatActivity {
     protected void login(View v) {
         // Login to get user and token
         LoginCredentials credentials = new LoginCredentials();
-        credentials.setEmail(usernameField.getText().toString());
+        credentials.setEmail(emailField.getText().toString());
         credentials.setPassword(passwordField.getText().toString());
+
         Call<Login> call = loginService.login(credentials);
         call.enqueue(new Callback<Login>() {
             @Override
             public void onResponse(Call<Login> call, Response<Login> response) {
                 // Store id and token to saved preferences to maintain user logged in
+                System.out.println("Hola bb");
                 Login login = response.body();
-                if (login != null)
-                    if (login.getUsuario() != null)
+                if (login != null) {
+                    if (login.getUsuario() != null) {
+                        System.out.println(login.getToken());
                         storeLogin(login.getUsuario().getId(), login.getToken());
-                    else
+                    } else {
                         badLoginText.setVisibility(View.VISIBLE);
-                else
+                    }
+                }else{
                     badLoginText.setVisibility(View.VISIBLE);
+                }
             }
 
             @Override
@@ -73,8 +78,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void storeLogin(String id, String token) {
-        SharedPreferences sharedPreferences = getSharedPreferences(
-                getString(R.string.preference_file_key), Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(getString(R.string.logged_user_id), id);
         editor.putString(getString(R.string.logged_user_token), token);

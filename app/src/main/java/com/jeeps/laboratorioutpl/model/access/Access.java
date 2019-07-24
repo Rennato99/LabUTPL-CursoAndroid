@@ -9,7 +9,7 @@ public class Access {
     private String hour;
     private String user;
     private String room;
-    private String typeAccess;
+    private String type;
 
     public String getId() {
         return id;
@@ -51,11 +51,11 @@ public class Access {
         this.room = room;
     }
 
-    public String getTypeAccess() {
-        return typeAccess;
+    public String getType() {
+        return type;
     }
 
-    public void setTypeAccess(String typeAccess) {
-        this.typeAccess = typeAccess;
+    public void setType(String type) {
+        this.type = type;
     }
 }

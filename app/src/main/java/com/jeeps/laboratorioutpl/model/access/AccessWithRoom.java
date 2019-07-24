@@ -10,7 +10,7 @@ public class AccessWithRoom {
     private String hour;
     private String user;
     private Sala sala;
-    private String typeAccess;
+    private String type;
 
     public String getId() {
         return id;
@@ -52,11 +52,11 @@ public class AccessWithRoom {
         this.sala = sala;
     }
 
-    public String getTypeAccess() {
-        return typeAccess;
+    public String getType() {
+        return type;
     }
 
-    public void setTypeAccess(String typeAccess) {
-        this.typeAccess = typeAccess;
+    public void setType(String type) {
+        this.type = type;
     }
 }

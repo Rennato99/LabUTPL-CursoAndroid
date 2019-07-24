@@ -126,6 +126,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void populateAccessList() {
         // Get access
+        System.out.println("Populate acces list");
         Call<AccessResult> call = accessService.getAccessList(userToken, userId);
         call.enqueue(new Callback<AccessResult>() {
             @Override

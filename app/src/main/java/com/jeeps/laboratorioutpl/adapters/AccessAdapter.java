@@ -65,9 +65,9 @@ public class AccessAdapter extends RecyclerView.Adapter<AccessAdapter.AccessView
             roomName.setText(access.getSala().getName());
             accessDate.setText(access.getDate());
             accessHour.setText(access.getHour());
-            if (access.getTypeAccess().equals(ENTER))
+            if (access.getType().equals(ENTER))
                 accessTypeImageView.setImageResource(R.drawable.enter);
-            else if (access.getTypeAccess().equals(EXIT))
+            else if (access.getType().equals(EXIT))
                 accessTypeImageView.setImageResource(R.drawable.exit);
         }
     }
